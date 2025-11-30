@@ -16,10 +16,8 @@ Une application Angular moderne pour explorer les lancements SpaceX et visualise
 - [Technologies Utilisées](#-technologies-utilisées)
 - [Démarrage Rapide](#-démarrage-rapide)
 - [Utilisation de l'IA](#-utilisation-de-lia)
-- [Points de Blocage](#-points-de-blocage)
 - [Structure du Projet](#-structure-du-projet)
 - [API SpaceX](#-api-spacex)
-- [Développement](#-développement)
 
 ---
 
@@ -248,6 +246,10 @@ ng lint                # Vérifie la qualité du code
 
 L'intelligence artificielle a été utilisée pour réaliser le fond étoilé animé.
 Elle a également contribué à rédiger le README et comme outil d'auto-complétion durant le développement.
+
+## Tests
+
+Par cause de manque de temps, aucun test n'a été implémenté dans ce projet.
 
 ## 📁 Structure du Projet
 

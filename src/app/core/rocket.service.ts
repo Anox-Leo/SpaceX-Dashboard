@@ -1,14 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, shareReplay } from 'rxjs';
-
-export interface Rocket {
-    id: string;
-    name: string;
-    type: string;
-    flickr_images: string[];
-    description: string;
-}
+import { Rocket } from 'app/models/rocket.interface';
 
 @Injectable({ providedIn: 'root' })
 export class RocketService {
