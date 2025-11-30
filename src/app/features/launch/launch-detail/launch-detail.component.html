@@ -1,0 +1,46 @@
+@if (launch(); as launch) {
+<div class="launch-detail-container">
+  <div class="header">
+    <img [src]="image()" alt="Mission Patch or Rocket" class="patch" [class.rocket-img]="!isPatch()">
+    <div class="title-section">
+      <h1>{{ launch.name }}</h1>
+      <span class="badge" [class]="statusClass()">
+        {{ statusText() }}
+      </span>
+      <p class="date">{{ launch.date_utc | date:'fullDate' }} at {{ launch.date_utc | date:'shortTime' }} UTC</p>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="card">
+      <h2>Mission Details</h2>
+      <p>{{ launch.details || 'No details available for this mission.' }}</p>
+      <p><strong>Rocket:</strong> {{ rocketName() }}</p>
+      <p><strong>Launchpad:</strong> {{ launchpadName() }}</p>
+      <p><strong>Flight Number:</strong> {{ launch.flight_number }}</p>
+    </div>
+
+    <div class="card links-card">
+      <h2>Links</h2>
+      <div class="links">
+        @if (launch.links.webcast) {
+        <a [href]="launch.links.webcast" target="_blank" class="btn">Watch Launch</a>
+        }
+        @if (launch.links.article) {
+        <a [href]="launch.links.article" target="_blank" class="btn secondary">Read Article</a>
+        }
+        @if (launch.links.wikipedia) {
+        <a [href]="launch.links.wikipedia" target="_blank" class="btn secondary">Wikipedia</a>
+        }
+        @if (!launch.links.webcast && !launch.links.article && !launch.links.wikipedia) {
+          <p>No external links available.</p>
+        }
+      </div>
+    </div>
+  </div>
+
+  <a routerLink="/launches" class="back-link">← Back to Launches</a>
+</div>
+} @else {
+<div class="loading">Loading launch details...</div>
+}

@@ -1,0 +1,24 @@
+<div class="dashboard-container">
+  <div class="charts-grid">
+    <div class="chart-card">
+      <canvas baseChart [data]="barChartData()" [type]="barChartType" [options]="barChartOptions">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <canvas baseChart [data]="pieChartData()" [type]="pieChartType" [options]="pieChartOptions">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <canvas baseChart [data]="doughnutChartData()" [type]="doughnutChartType" [options]="doughnutChartOptions">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <canvas baseChart [data]="horizontalBarChartData()" [type]="horizontalBarChartType"
+        [options]="horizontalBarChartOptions">
+      </canvas>
+    </div>
+  </div>
+</div>

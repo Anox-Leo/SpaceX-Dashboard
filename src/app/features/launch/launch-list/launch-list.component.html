@@ -1,0 +1,66 @@
+<div class="controls-container">
+  <div class="filters">
+    <button class="filter-toggle" [class.active]="isUpcoming()" (click)="onFilterChange()">
+      {{ displayText() }}
+    </button>
+  </div>
+
+  <div class="page-size-selector">
+    <label for="pageSize">Show:</label>
+    <select id="pageSize" [ngModel]="pageSize()" (ngModelChange)="onPageSizeChange($event)">
+      @for (size of pageSizeOptions; track size) {
+      <option [value]="size">{{ size }}</option>
+      }
+    </select>
+    <span>per page</span>
+  </div>
+</div>
+
+<div class="launch-list">
+  @for (launch of launchList(); track launch.id) {
+  <a [routerLink]="['/launches', launch.id]" class="launch-link">
+    <app-launch-element [launch]="launch" />
+  </a>
+  } @empty {
+  <div class="no-launches">No launches found</div>
+  }
+</div>
+
+<div class="pagination-controls">
+  <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage() === 1">
+    ← Previous
+  </button>
+
+  <div class="page-numbers">
+    @if (currentPage() > 2) {
+    <button class="page-btn" (click)="goToPage(1)">1</button>
+    @if (currentPage() > 3) {
+    <span class="ellipsis">...</span>
+    }
+    }
+
+    @if (currentPage() > 1) {
+    <button class="page-btn" (click)="goToPage(currentPage() - 1)">{{ currentPage() - 1 }}</button>
+    }
+
+    <button class="page-btn active">{{ currentPage() }}</button>
+
+    @if (currentPage() < totalPages()) { <button class="page-btn" (click)="goToPage(currentPage() + 1)">{{ currentPage()
+      + 1 }}</button>
+      }
+
+      @if (currentPage() < totalPages() - 1) { @if (currentPage() < totalPages() - 2) { <span class="ellipsis">
+        ...</span>
+        }
+        <button class="page-btn" (click)="goToPage(totalPages())">{{ totalPages() }}</button>
+        }
+  </div>
+
+  <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage() === totalPages()">
+    Next →
+  </button>
+</div>
+
+<div class="pagination-info">
+  Page {{ currentPage() }} of {{ totalPages() }} • Total: {{ totalItems() }} launches
+</div>

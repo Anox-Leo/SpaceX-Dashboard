@@ -1,0 +1,36 @@
+<div class="launch">
+  <div class="logo-container">
+    @if (showMissionPatch()) {
+    <img [src]="launch().links.patch.small" [alt]="launch().name + ' mission patch'" class="mission-patch">
+    } @else if (isFalconHeavy()) {
+    <app-falcon-heavy-logo [width]="72" [height]="50" />
+    } @else {
+    <app-falcon9-logo [width]="56" [height]="50" />
+    }
+  </div>
+
+  <div class="info-section" style="width: 10px;">
+    <h2>FLIGHT</h2>
+    <p>{{ launch().flight_number }}</p>
+  </div>
+
+  <div class="info-section">
+    <h2>MISSION NAME</h2>
+    <p>{{ launch().name }}</p>
+  </div>
+
+  <div class="info-section">
+    <h2>STATUS</h2>
+    <p>{{ statusText() }}</p>
+  </div>
+
+  <div class="info-section">
+    <h2>DATE (UTC)</h2>
+    <p>{{ launch().date_utc | date: 'dd/MM/yyyy' }}</p>
+  </div>
+
+  <div class="info-section">
+    <h2>ROCKET</h2>
+    <p>{{ rocketName() }}</p>
+  </div>
+</div>

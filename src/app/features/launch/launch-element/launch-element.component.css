@@ -1,0 +1,57 @@
+.launch {
+  display: grid;
+  grid-template-columns: 120px 0.6fr 2fr 1fr 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.launch:hover {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  width: 100px;
+  height: 100px;
+}
+
+.mission-patch {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+h2 {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-family: 'SpaceXFont', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  font-family: 'SpaceXFont', sans-serif;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
